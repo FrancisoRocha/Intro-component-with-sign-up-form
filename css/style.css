@@ -311,7 +311,7 @@ body{
 }
 
 .name, 
-.phone, 
+.lastName, 
 .email, 
 .password{
     outline: none;
@@ -320,7 +320,7 @@ body{
 }
 
 .name:focus, 
-.phone:focus, 
+.lastName:focus, 
 .email:focus, 
 .password:focus{
     border-color: var(--Active)
