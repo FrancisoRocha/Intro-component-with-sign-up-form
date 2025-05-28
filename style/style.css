@@ -1,0 +1,36 @@
+:root{
+    --font: "Poppins", sans-serif;
+    
+    --purple: #5E54A4;
+    --green: #38CC8B;
+    --pastelPink: #FF7979;
+    --darkPurlple: #3D3B48;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/*? UTILIDADES */
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
