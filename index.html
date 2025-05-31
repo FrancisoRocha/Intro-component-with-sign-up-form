@@ -32,15 +32,23 @@
         </p>
       </div>
       <!-- FORM -->
-      <div class="form">
+      <form class="form">
         <!-- NAME -->
-        <input type="text" id="name" name="name" class="name" placeholder="First Name">
+        <div class="input__name">
+          <input type="text" id="name" name="name" class="name" placeholder="First Name">
+        </div>
         <!-- lAST NAME -->
-        <input type="text" id="last-name" name="last-name" class="last__name" placeholder="Last Name">
+        <div class="input__lastName">
+          <input type="text" id="last-name" name="last-name" class="last__name" placeholder="Last Name">
+        </div>
         <!-- EMAIL -->
-        <input type="email" id="email" name="email" class="email" placeholder="Email Address">
+        <div class="input__email">
+          <input type="email" id="email" name="email" class="email" placeholder="Email Address">
+        </div>
         <!-- PASSWORD -->
-        <input type="password" id="password" name="password" class="password" placeholder="password">
+        <div class="input__password">
+          <input type="password" id="password" name="password" class="password" placeholder="Password">
+        </div>
 
         <button type="submit" class="btn">Claim your free trial</button>
 
@@ -48,10 +56,12 @@
         <p class="terms">
           By clicking the button, you are agreeing to our <span class="services">Terms and Services</span>
         </p>
-      </div>
+      </form>
     </div>
 
   </div>
+
+  <script type="module" src="./app/app.js" ></script>
 
 </body>
 </html>

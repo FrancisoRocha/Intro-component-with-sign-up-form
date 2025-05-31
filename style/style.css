@@ -187,9 +187,10 @@ span{
 .form{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     gap: 1.5rem;
     width: 32.7rem;
-    height: 44.2rem;
+    height: auto;
     background-color: var(--white);
     border-radius: 1rem;
     margin: 0 auto;
@@ -199,17 +200,17 @@ span{
     .form{
         width: 54rem;
         height: 56.2rem;
-        gap: 4rem;
+        gap: 2rem;
     }
 }
 
 
 input{
+    position: relative;
     width: 27.9rem;
     height: 5.6rem;
-    margin: 0 auto;
     border-radius: .5rem;
-    border: .1rem solid #DEDEDE;
+    border: .2rem solid #DEDEDE;
     outline: none;
     color: var(--darkPurlple);
     font-family: var(--font);
@@ -218,6 +219,22 @@ input{
     line-height: 26px;
     text-align: left;
     padding-left: 1rem;
+}
+
+.name{
+    margin-top: 2rem;
+}
+
+.input__name,
+.input__lastName,
+.input__email,
+.input__password{
+    margin: 0 auto;
+    position: relative;
+}
+
+.border--error{
+    border: .2rem solid var(--pastelPink);
 }
 
 @media(min-width: 1024px){
@@ -231,14 +248,47 @@ input::placeholder{
     color: var(--darkPurlple);
 }
 
-input:nth-child(1){
-    margin-top: 2rem
+.input__icon--message{
+    position: relative;
+    font-family: var(--font);
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: right;
+    font-style: italic;
+    color: var(--pastelPink);
+    margin-top: 1rem;
+}
+
+.input__icon--message::before{
+    content: "";
+    position: absolute;
+    top: -5rem;
+    left: 24rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-image: url(/images/icon-error.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.email--error::placeholder{
+    color: var(--pastelPink);
+    font-family: var(--font);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: left;
 }
 
 @media(min-width: 1024px){
-    input:nth-child(1){
-        margin-top: 4rem
+    .input__icon--message{
+        right: auto;
     }
+
+    .input__icon--message::before{
+        left: 41rem;
+    }
+
 }
 
 .btn{
@@ -289,3 +339,4 @@ input:nth-child(1){
 .services{
     color: var(--pastelPink);
 }
+
