@@ -1,26 +1,28 @@
 
-const inputName = document.querySelector('.name')
 
 export function firstName(){
+    const inputName = document.querySelector('.name')
+    const inputWrapper = inputName.parentElement;
 
-    
     inputName.addEventListener('blur', () => {
-        const inputWrapper = inputName.parentElement;
+        const existingError = inputWrapper.querySelector('.input__icon--message');
         //console.log('Escribiendo')
-        // Remove error class
-        const existeError = inputWrapper.querySelector('.input__icon--error');
-        if( existeError ) existeError.remove();
 
         if(inputName.value.trim() === ''){
-            const errorMensaje = document.createElement('p');
-            errorMensaje.classList.add('input__icon--error','input__icon--message');
-            errorMensaje.innerText = 'First Name cannot be empty';
+
             inputName.classList.add('border--error');
-            inputName.removeAttribute('placeholder')
-            inputWrapper.appendChild(errorMensaje);
+            inputName.removeAttribute('placeholder');
+
+            if(!existingError){
+                const errorMensaje = document.createElement('p');
+                errorMensaje.classList.add('input__icon--message');
+                errorMensaje.innerText = 'First Name cannot be empty';
+                inputWrapper.appendChild(errorMensaje);
+            }
         } else {
-            console.log(inputName.value)
-            inputName.classList.remove('name--error');
+            //console.log(inputName.value)
+            inputName.classList.remove('border--error');
+            if(existingError) existingError.remove()
         }
 
     })

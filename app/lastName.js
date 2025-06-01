@@ -1,29 +1,28 @@
 
-const inputLastName = document.querySelector('.last__name');
 
 export function lastName() {
-
+    
+    const inputLastName = document.querySelector('.last__name');
     const inputWrapper = inputLastName.parentElement;
 
     inputLastName.addEventListener('blur', () => {
-
-        // Remove error class
-        const existeError = document.querySelector('.input__icon--error');
-        if( existeError ) existeError.remove();
+        const existeError = inputWrapper.querySelector('.input__icon--message');
 
         if( inputLastName.value.trim() === ''){
-            const errorMensaje = document.createElement('p');
-            errorMensaje.classList.add('input__icon--error','input__icon--message');
-            errorMensaje.innerText = 'Last Name cannot be empty';
+
             inputLastName.classList.add('border--error');
             inputLastName.removeAttribute('placeholder');
-            inputWrapper.appendChild(errorMensaje);
+
+            if(!existeError){
+                const errorMensaje = document.createElement('p');
+                errorMensaje.classList.add('input__icon--error','input__icon--message');
+                errorMensaje.innerText = 'Last Name cannot be empty';
+                inputWrapper.appendChild(errorMensaje);
+            }
         } else {
             inputLastName.classList.remove('border--error')
+            if(existeError) existeError.remove()
         }
-
-
     })
-
 }
 

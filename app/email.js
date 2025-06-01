@@ -1,16 +1,14 @@
 
 
-const inputEmail = document.querySelector('.email');
-
 export function email(){
-
+    
+    const inputEmail = document.querySelector('.email');
     const inputWrapper = inputEmail.parentElement;
 
+    
     inputEmail.addEventListener('blur', () => {
-         // Remove error class
-        const existeError = document.querySelector('.input__icon--error');
-        if( existeError ) existeError.remove();
-
+        const existeError = inputWrapper.querySelector('.input__icon--message');
+        
         // Add event listener to the input field
         const isValidEmail = (email) => {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -18,15 +16,20 @@ export function email(){
         }
 
         if( inputEmail.value.trim() === '' || !isValidEmail(inputEmail.value)){
-            const errorMensaje = document.createElement('p');
-            errorMensaje.classList.add('input__icon--error','input__icon--message');
-            errorMensaje.innerText = 'Looks like this is not an email';
+
             inputEmail.classList.add('border--error');
-            inputEmail.classList.add('email--error')
-            inputEmail.placeholder = 'email@example/com'
-            inputWrapper.appendChild(errorMensaje);
+            inputEmail.classList.add('email--error');
+            inputEmail.placeholder = 'email@example/com';
+
+            if(!existeError){
+                const errorMensaje = document.createElement('p');
+                errorMensaje.classList.add('input__icon--message');
+                errorMensaje.innerText = 'Looks like this is not an email';
+                inputWrapper.appendChild(errorMensaje);
+            }
         } else {
-            inputEmail.classList.remove('border--error')
+            inputEmail.classList.remove('border--error');
+            if(existeError) existeError.remove();
         }
 
     })
