@@ -1,19 +1,23 @@
 
+// Email validation helper function
+const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
 
-export function email(){
+export function email(validateOnly = false){
     
     const inputEmail = document.querySelector('.email');
     const inputWrapper = inputEmail.parentElement;
 
+
+    // If called for validation only, return boolean result
+    if (validateOnly) {
+        return inputEmail.value.trim() !== '' && isValidEmail(inputEmail.value);
+    }
     
     inputEmail.addEventListener('blur', () => {
         const existeError = inputWrapper.querySelector('.input__icon--message');
-        
-        // Add event listener to the input field
-        const isValidEmail = (email) => {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
 
         if( inputEmail.value.trim() === '' || !isValidEmail(inputEmail.value)){
 

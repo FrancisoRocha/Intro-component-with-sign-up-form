@@ -1,8 +1,13 @@
 
 
-export function firstName(){
+export function firstName(validateOnly = false){
     const inputName = document.querySelector('.name')
     const inputWrapper = inputName.parentElement;
+
+    // If called for validation only, return boolean result
+    if (validateOnly) {
+        return inputName.value.trim() !== '';
+    }
 
     inputName.addEventListener('blur', () => {
         const existingError = inputWrapper.querySelector('.input__icon--message');

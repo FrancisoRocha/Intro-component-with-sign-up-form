@@ -1,9 +1,14 @@
 
 
-export function password(){
+export function password(validateOnly = false){
     
     const inputPassWord = document.querySelector('.password');
     const inputWrapper = inputPassWord.parentElement;
+
+    // If called for validation only, return boolean result
+    if (validateOnly) {
+        return inputPassWord.value.trim() !== '';
+    }
 
     inputPassWord.addEventListener('blur', () => {
         const existeError = inputWrapper.querySelector('.input__icon--message');
